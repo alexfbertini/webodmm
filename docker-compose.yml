@@ -9,7 +9,7 @@ services:
     image: opendronemap/webodm_db
     container_name: db
     expose:
-      - "5432"
+      - "5434"
     volumes:
       - ${WO_DB_DIR}:/var/lib/postgresql/data:Z
     restart: unless-stopped
@@ -21,7 +21,7 @@ services:
     volumes:
       - ${WO_MEDIA_DIR}:/webodm/app/media:z
     ports:
-      - "${WO_PORT}:8000"
+      - "8110:8000"
     depends_on:
       - db
       - broker
